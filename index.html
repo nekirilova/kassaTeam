@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Команда мечты</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #77ecf0;
+            text-align: center;
+        }
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+        }
+        header img {
+            height: 50px; /* Высота логотипа */
+        }
+        h1 {
+            margin: 20px 0;
+        }
+        .team-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        .team-member {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            overflow: hidden;
+            background-color: #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .team-member img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .team-member p {
+            display: none;
+            font-size: 14px;
+            color: #333;
+            text-align: center;
+            padding: 10px;
+        }
+        .team-member.active p {
+            display: block;
+        }
+        .team-member.active img {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Вставьте логотип в src -->
+        <img src="assets/logo.png" alt="Логотип">
+        <h1>Команда мечты</h1>
+    </header>
+
+    <div class="team-container">
+        <!-- Вставьте фотографии в src и добавьте забавный текст в data-text -->
+        <div class="team-member" data-text="Юля - наш лидер и бессменный диджей. Юлю всегда можно найти в толпе по цвету волос">
+            <img src="assets/julia.jpg" alt="Фото 1">
+            <p></p>
+        </div>
+        <div class="team-member" data-text="Ксения - первая девушка-разработчик в команде. Владеет тайной магией, которая позволяет ей делать задачи сразу без багов">
+            <img src="assets/kseniya.jpg" alt="Фото 2">
+            <p></p>
+        </div>
+        <div class="team-member" data-text="Вадим - тестировщик с большим бэкграундом и отличным чувством юмора. Не понаслышке знает, чем отличаются 5% и 7%">
+            <img src="assets/vadim.jpg" alt="Фото 2">
+            <p></p>
+        </div>
+        <div class="team-member" data-text="Александр - тот самый разработчик, у которого площадь монитора больше, чем площадь однушки в Подмосковье">
+            <img src="assets/alex.jpg" alt="Фото 2">
+            <p></p>
+        </div>
+        <div class="team-member" data-text="Рома - человек-загадка. Никто не помнит, как Рома выглядит, потому что он давно не включал камеру. Знает все 3 системы команды, но любит только одну">
+            <img src="assets/roma.jpg" alt="Фото 2">
+            <p></p>
+        </div>
+        <!-- Добавьте остальные 20 блоков с фотографиями и текстом -->
+        <!-- Пример: -->
+        <!--
+        <div class="team-member" data-text="Забавный текст про этого человека">
+            <img src="photo3.jpg" alt="Фото 3">
+            <p></p>
+        </div>
+        -->
+    </div>
+
+    <script>
+        // Добавляем обработчик клика на каждый элемент
+        const teamMembers = document.querySelectorAll('.team-member');
+        teamMembers.forEach(member => {
+            member.addEventListener('click', () => {
+                member.classList.toggle('active');
+                if (member.classList.contains('active')) {
+                    member.querySelector('p').textContent = member.getAttribute('data-text');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
